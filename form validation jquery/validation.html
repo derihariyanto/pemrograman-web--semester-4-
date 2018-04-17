@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Validation Form</title>
+	<meta charset=utf-8>
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<style type="text/css" media="screen">
+		form{
+			font-family: "Calibri";
+			width:30%;
+			margin-top: 40px;
+			margin-left: 40px;
+		}
+		label{
+			display: inline-block;
+			width:130px;
+		}
+		.error_msg{
+			color: red;
+		}
+	</style>
+	<script src="jquery-min.js"></script>
+</head>
+<body>
+	<form class="form" action="" method="POST">
+		<fieldset>
+			<legend>Daftar</legend>
+			<p>
+				<label for="nama">Nama </label>
+				<input type="text" name="nama" id="nama">
+			</p>
+			<p>
+				<label for="email">Email </label>
+				<input type="email" name="email" id="email">
+			</p>	
+			<p>
+				<label for="alamat">Alamat</label>
+				<textarea name="alamat" id="alamat"></textarea>
+			</p>			
+			<p>
+				<label for="no_telp">Nomor Telepon</label>
+				<input type="text" name="no_telp">
+			</p>					
+			<p>
+				<input type="submit" name="submit" id="submit" value="submit">
+			</p>
+		</fieldset>
+	</form>
+	<script>
+		  $('#submit').on('click', function() {
+		    var valid = true,
+		    errorMessage = "";
+
+		    if ($('#nama').val() == '') {
+		       errorMessage  = "Nama harus diisi \n";
+		       valid = false;
+		    }
+
+		    if ($('#alamat').val() == '') {
+		       errorMessage += "Alamat harus diisi\n";
+		       valid = false;
+		    }    
+
+		    if ($('#email').val() == '') {
+		       errorMessage += "Email harus diisi\n";
+		       valid = false;
+		    } 
+
+		    if( !valid && errorMessage.length > 0){
+		       alert(errorMessage);
+		    }   
+		  });
+	</script>
+</body>
+</html>
